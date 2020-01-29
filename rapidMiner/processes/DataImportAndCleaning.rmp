@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.5.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.5.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="9.5.001" expanded="true" height="68" name="Import Expeditions" width="90" x="112" y="238">
+        <parameter key="repository_entry" value="../data/complete_dataset_expeditions"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="9.5.001" expanded="true" height="68" name="Import Members" width="90" x="112" y="340">
+        <parameter key="repository_entry" value="../data/complete_dataset_members"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="9.5.001" expanded="true" height="68" name="Import Peaks" width="90" x="112" y="136">
+        <parameter key="repository_entry" value="../data/complete_dataset_peaks"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="9.5.001" expanded="true" height="82" name="Join Peaks ~ Expedition" width="90" x="380" y="187">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="peakid" value="peakid"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="9.5.001" expanded="true" height="82" name="Join Members" width="90" x="581" y="289">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="expid" value="expid"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.5.001" expanded="true" height="82" name="Deselect Attributes" width="90" x="782" y="289">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="achievment|mo2note|msmtdate3|msmtnote3|msmttime3|othersmts|primid|psmtnote|restrict|trekyear|age|birthdate"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="replace" compatibility="9.5.001" expanded="true" height="82" name="Replace missing values" width="90" x="983" y="289">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="nominal"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="file_path"/>
+        <parameter key="block_type" value="single_value"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="single_value"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="replace_what" value="-   -"/>
+        <parameter key="replace_by" value="NA"/>
+      </operator>
+      <operator activated="true" class="replace" compatibility="9.5.001" expanded="true" height="82" name="Replace 'WAHR'" width="90" x="1184" y="289">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="nominal"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="file_path"/>
+        <parameter key="block_type" value="single_value"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="single_value"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="replace_what" value="WAHR"/>
+        <parameter key="replace_by" value="true"/>
+      </operator>
+      <operator activated="true" class="replace" compatibility="9.5.001" expanded="true" height="82" name="Replace 'FALSCH'" width="90" x="1385" y="289">
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="nominal"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="file_path"/>
+        <parameter key="block_type" value="single_value"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="single_value"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="replace_what" value="FALSCH"/>
+        <parameter key="replace_by" value="false"/>
+      </operator>
+      <connect from_op="Import Expeditions" from_port="output" to_op="Join Peaks ~ Expedition" to_port="right"/>
+      <connect from_op="Import Members" from_port="output" to_op="Join Members" to_port="right"/>
+      <connect from_op="Import Peaks" from_port="output" to_op="Join Peaks ~ Expedition" to_port="left"/>
+      <connect from_op="Join Peaks ~ Expedition" from_port="join" to_op="Join Members" to_port="left"/>
+      <connect from_op="Join Members" from_port="join" to_op="Deselect Attributes" to_port="example set input"/>
+      <connect from_op="Deselect Attributes" from_port="example set output" to_op="Replace missing values" to_port="example set input"/>
+      <connect from_op="Replace missing values" from_port="example set output" to_op="Replace 'WAHR'" to_port="example set input"/>
+      <connect from_op="Replace 'WAHR'" from_port="example set output" to_op="Replace 'FALSCH'" to_port="example set input"/>
+      <connect from_op="Replace 'FALSCH'" from_port="example set output" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="1142" y="169">Replace every boolean value 'WAHR' to 'true'</description>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="1342" y="169">Replace every boolean value 'FALSCH' to 'false'</description>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="747" y="167">In this task some attributes where removed manuelly caused by to much missing values</description>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="949" y="168">Some missing values have have ' - - ' in this case it is replaced with '?' to be consistent</description>
+    </process>
+  </operator>
+</process>
