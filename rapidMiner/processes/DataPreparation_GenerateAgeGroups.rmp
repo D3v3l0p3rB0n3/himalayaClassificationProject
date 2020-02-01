@@ -146,12 +146,31 @@
           <parameter key="Over 50" value="Infinity"/>
         </list>
       </operator>
+      <operator activated="true" class="generate_concatenation" compatibility="9.5.001" expanded="true" height="82" name="Generate Concatenation" width="90" x="648" y="34">
+        <parameter key="first_attribute" value="lname"/>
+        <parameter key="second_attribute" value="fname"/>
+        <parameter key="separator" value="_"/>
+        <parameter key="trim_values" value="false"/>
+      </operator>
+      <operator activated="true" class="python_scripting:execute_python" compatibility="9.5.000" expanded="true" height="103" name="Execute Python" width="90" x="849" y="34">
+        <parameter key="script" value="import pandas&#10;&#10;# rm_main is a mandatory function, &#10;# the number of arguments has to be the number of input ports (can be none)&#10;def rm_main(data):&#10;    print('Hello, world!')&#10;    # output can be found in Log View&#10;    print(type(data))&#10;&#10;    #your code goes here&#10;&#10;    #for example:&#10;    data2 = pandas.DataFrame([3,5,77,8])&#10;&#10;    # connect 2 output ports to see the results&#10;    return data, data2"/>
+        <parameter key="script_file" value="/Users/philippkron/Documents/GitHub/himalayaClassificationProject/rapidMiner/processes/cumcount.py"/>
+        <parameter key="notebook_cell_tag_filter" value=""/>
+        <parameter key="use_default_python" value="true"/>
+        <parameter key="package_manager" value="conda (anaconda)"/>
+      </operator>
       <connect from_op="Read CSV" from_port="output" to_op="Generate Copy" to_port="example set input"/>
       <connect from_op="Generate Copy" from_port="example set output" to_op="Disc by user" to_port="example set input"/>
-      <connect from_op="Disc by user" from_port="example set output" to_port="result 1"/>
+      <connect from_op="Disc by user" from_port="example set output" to_op="Generate Concatenation" to_port="example set input"/>
+      <connect from_op="Generate Concatenation" from_port="example set output" to_op="Execute Python" to_port="input 1"/>
+      <connect from_op="Execute Python" from_port="output 1" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="108" resized="false" width="180" x="195" y="175">Koieren des Attributes calc_age, da das verwendete Attribut im discretize Element &amp;#252;berschrieben wird</description>
+      <description align="center" color="yellow" colored="false" height="108" resized="false" width="180" x="402" y="174">Umswandeln des calc_age in discrete age bins nach User Vorgabe</description>
+      <description align="center" color="yellow" colored="false" height="108" resized="false" width="180" x="603" y="176">Unique Identifier aus Nach - und Vorname um Bergsteiger &amp;quot;eindeutig&amp;quot; identifizieren zu k&amp;#246;nnen</description>
+      <description align="center" color="yellow" colored="false" height="108" resized="false" width="180" x="806" y="177">Berechnung &amp;#252;ber cumcount wie oft ein Bergsteiger schon im Datensatz enthalten ist</description>
     </process>
   </operator>
 </process>
