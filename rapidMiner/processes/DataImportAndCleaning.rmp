@@ -39,10 +39,10 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="select_attributes" compatibility="9.5.001" expanded="true" height="82" name="Deselect Attributes" width="90" x="380" y="289">
+      <operator activated="false" class="select_attributes" compatibility="9.5.001" expanded="true" height="82" name="Deselect Attributes" width="90" x="380" y="289">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
-        <parameter key="attributes" value="achievment|mo2note|msmtdate3|msmtnote3|msmttime3|othersmts|primid|psmtnote|restrict|trekyear|age|birthdate"/>
+        <parameter key="attributes" value="achievment|age|birthdate|mo2note|msmtdate3|msmtnote3|msmttime3|othersmts|primid|psmtnote|restrict|trekyear|pkname2"/>
         <parameter key="use_except_expression" value="false"/>
         <parameter key="value_type" value="attribute_value"/>
         <parameter key="use_value_type_exception" value="false"/>
@@ -153,8 +153,7 @@
             <parameter key="trim_values" value="false"/>
           </operator>
           <operator activated="true" class="python_scripting:execute_python" compatibility="9.5.000" expanded="true" height="103" name="Execute Python" width="90" x="380" y="34">
-            <parameter key="script" value="import pandas&#10;&#10;# rm_main is a mandatory function, &#10;# the number of arguments has to be the number of input ports (can be none)&#10;def rm_main(data):&#10;    print('Hello, world!')&#10;    # output can be found in Log View&#10;    print(type(data))&#10;&#10;    #your code goes here&#10;&#10;    #for example:&#10;    data2 = pandas.DataFrame([3,5,77,8])&#10;&#10;    # connect 2 output ports to see the results&#10;    return data, data2"/>
-            <parameter key="script_file" value="/Users/philippkron/Documents/GitHub/himalayaClassificationProject/rapidMiner/processes/cumcount.py"/>
+            <parameter key="script" value="def rm_main(data):&#10;    #receive data set as data&#10;&#10;   #Sort data by year of memberclimb to ensure eperience is calculated in correct order&#10;    data.sort_values(&quot;myear&quot;, axis = 0, ascending = True, &#10;                 inplace = True, na_position ='last')&#10;    &#10;    #create new colum showing the experience of a climber by counting the apperance of the unique identifier&#10;    #from a combination of lastname and fristname&#10;    data[&quot;climber_experience&quot;] = data.groupby([data[&quot;lname_fname&quot;]]).cumcount()+1&#10;&#10;    return data"/>
             <parameter key="notebook_cell_tag_filter" value=""/>
             <parameter key="use_default_python" value="true"/>
             <parameter key="package_manager" value="conda (anaconda)"/>
@@ -174,8 +173,7 @@
       <connect from_op="Import Members" from_port="output" to_op="Join Members" to_port="right"/>
       <connect from_op="Import Peaks" from_port="output" to_op="Join Peaks ~ Expedition" to_port="left"/>
       <connect from_op="Join Peaks ~ Expedition" from_port="join" to_op="Join Members" to_port="left"/>
-      <connect from_op="Join Members" from_port="join" to_op="Deselect Attributes" to_port="example set input"/>
-      <connect from_op="Deselect Attributes" from_port="example set output" to_op="Replace missing values" to_port="example set input"/>
+      <connect from_op="Join Members" from_port="join" to_op="Replace missing values" to_port="example set input"/>
       <connect from_op="Replace missing values" from_port="example set output" to_op="Replace 'WAHR'" to_port="example set input"/>
       <connect from_op="Replace 'WAHR'" from_port="example set output" to_op="Replace 'FALSCH'" to_port="example set input"/>
       <connect from_op="Replace 'FALSCH'" from_port="example set output" to_op="CalcAge Subprocess" to_port="in 1"/>
@@ -187,7 +185,7 @@
       <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="743" y="174">Replace every boolean value 'WAHR' to 'true'</description>
       <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="944" y="174">Replace every boolean value 'FALSCH' to 'false'</description>
       <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="334" y="173">In this task some attributes where removed manuelly caused by to much missing values</description>
-      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="537" y="178">Some missing values have have ' - - ' in this case it is replaced with '?' to be consistent</description>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="537" y="178">Some missing values have ' - - ' in this case it is replaced with '?' to be consistent</description>
       <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="1145" y="176">Copy calcage and replace with calcage bins</description>
       <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="1340" y="177">Calculate climber experience</description>
     </process>
