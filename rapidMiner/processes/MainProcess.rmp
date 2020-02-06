@@ -15,13 +15,22 @@
       <operator activated="true" class="productivity:execute_process" compatibility="9.5.001" expanded="true" height="68" name="Execute DataImportAndCleaning" width="90" x="112" y="34">
         <parameter key="process_location" value="DataImportAndCleaning"/>
         <parameter key="use_input" value="true"/>
-        <parameter key="store_output" value="false"/>
+        <parameter key="store_output" value="true"/>
         <parameter key="propagate_metadata_recursively" value="true"/>
         <parameter key="cache_process" value="true"/>
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="write_csv" compatibility="9.5.001" expanded="true" height="82" name="Write CSV" width="90" x="246" y="34">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.5.001" expanded="true" height="68" name="Execute Data Prep" width="90" x="313" y="34">
+        <parameter key="process_location" value="DataPrep"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="true"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="9.5.001" expanded="true" height="82" name="Write CSV" width="90" x="581" y="34">
         <parameter key="csv_file" value="C:\Users\Felix\Documents\Repositories\himalayaClassificationProject\rapidMiner\data\output.csv"/>
         <parameter key="column_separator" value=";"/>
         <parameter key="write_attribute_names" value="true"/>
@@ -30,9 +39,18 @@
         <parameter key="append_to_file" value="false"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
-      <connect from_op="Execute DataImportAndCleaning" from_port="result 1" to_op="Write CSV" to_port="input"/>
+      <operator activated="false" class="write_file" compatibility="9.5.001" expanded="true" height="68" name="Write File" width="90" x="782" y="85">
+        <parameter key="resource_type" value="file"/>
+        <parameter key="filename" value="/Users/philippkron/Desktop/himalayaclassification_csv.csv"/>
+        <parameter key="repository_entry" value="output_csv"/>
+        <parameter key="mime_type" value="application/octet-stream"/>
+      </operator>
+      <connect from_op="Execute DataImportAndCleaning" from_port="result 1" to_op="Execute Data Prep" to_port="input 1"/>
+      <connect from_op="Execute Data Prep" from_port="result 1" to_op="Write CSV" to_port="input"/>
+      <connect from_op="Write CSV" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
     </process>
   </operator>
 </process>
