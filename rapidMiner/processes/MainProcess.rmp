@@ -21,7 +21,7 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="productivity:execute_process" compatibility="9.5.001" expanded="true" height="68" name="Execute Data Prep" width="90" x="313" y="34">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.5.001" expanded="true" height="68" name="Execute Data Prep" width="90" x="246" y="34">
         <parameter key="process_location" value="DataPrep"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="true"/>
@@ -30,24 +30,102 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="write_csv" compatibility="9.5.001" expanded="true" height="82" name="Write CSV" width="90" x="581" y="34">
-        <parameter key="csv_file" value="C:\Users\Felix\Documents\Repositories\himalayaClassificationProject\rapidMiner\data\output.csv"/>
-        <parameter key="column_separator" value=";"/>
-        <parameter key="write_attribute_names" value="true"/>
-        <parameter key="quote_nominal_values" value="true"/>
-        <parameter key="format_date_attributes" value="true"/>
-        <parameter key="append_to_file" value="false"/>
-        <parameter key="encoding" value="SYSTEM"/>
-      </operator>
-      <operator activated="false" class="write_file" compatibility="9.5.001" expanded="true" height="68" name="Write File" width="90" x="782" y="85">
-        <parameter key="resource_type" value="file"/>
-        <parameter key="filename" value="/Users/philippkron/Desktop/himalayaclassification_csv.csv"/>
-        <parameter key="repository_entry" value="output_csv"/>
-        <parameter key="mime_type" value="application/octet-stream"/>
+      <operator activated="true" class="rename" compatibility="9.5.001" expanded="true" height="82" name="Rename to undestandable names" width="90" x="447" y="34">
+        <parameter key="old_name" value="calcage_disc"/>
+        <parameter key="new_name" value="Altersgruppe_diskret"/>
+        <list key="rename_additional_attributes">
+          <parameter key="pkname" value="Gipfel_Name"/>
+          <parameter key="himal" value="Gebirgsgruppe_diskret"/>
+          <parameter key="region" value="Region_diskret"/>
+          <parameter key="open" value="Gipfel_offen"/>
+          <parameter key="unlisted" value="Gipfel_ungelistet"/>
+          <parameter key="trekking" value="Trekkinggipfel"/>
+          <parameter key="phost" value="Gipfel_Laender_diskret"/>
+          <parameter key="pstatus" value="Gipfel_Kletterstatus_diskret"/>
+          <parameter key="pyear" value="Erstbegehungsjahr"/>
+          <parameter key="pseason" value="Erstbegehungssaison"/>
+          <parameter key="psmtdate" value="Erstbegehungsdatum"/>
+          <parameter key="pcountry" value="Erstbegehungsland"/>
+          <parameter key="year" value="Expedition_Jahr"/>
+          <parameter key="season" value="Expedition_Saison_diskret"/>
+          <parameter key="host" value="Expedition_Laender_diskret "/>
+          <parameter key="route1" value="Klettertour_1"/>
+          <parameter key="route2" value="Klettertour_2"/>
+          <parameter key="route3" value="Klettertour_3"/>
+          <parameter key="route4" value="Klettertour_4"/>
+          <parameter key="nation" value="Expedition_Staatsangehörigkeit"/>
+          <parameter key="leaders" value="Expedition_Fuehrer"/>
+          <parameter key="sponsor" value="Expedition_Sponsor"/>
+          <parameter key="ascent1" value="Aufsteiger_Nummer_fuer_Route_1"/>
+          <parameter key="ascent2" value="Aufsteiger_Nummer_fuer_Route_2"/>
+          <parameter key="ascent3" value="Aufsteiger_Nummer_fuer_Route_3"/>
+          <parameter key="ascent4" value="Aufsteiger_Nummer_fuer_Route_4"/>
+          <parameter key="countries" value="Expedition_Andere_Laender"/>
+          <parameter key="approach" value="Expedition_Anmarsch"/>
+          <parameter key="nohired" value="Kein_Personal_Ueber_Basecamp"/>
+          <parameter key="agency" value="Agentur"/>
+          <parameter key="comrte" value="Kommerzielle_Route"/>
+          <parameter key="stdrte" value="8000m_Standart_Route"/>
+          <parameter key="myear" value="Member_Jahr"/>
+          <parameter key="fname" value="Vorname"/>
+          <parameter key="lname" value="Nachname"/>
+          <parameter key="sex" value="Geschlecht"/>
+          <parameter key="yob" value="Geburtsjahr"/>
+          <parameter key="citizen" value="Staatsbürgerschaft"/>
+          <parameter key="status" value="Status"/>
+          <parameter key="residence" value="Wohnsitz"/>
+          <parameter key="occupation" value="Beruf"/>
+          <parameter key="leader" value="Member_Führer"/>
+          <parameter key="deputy" value="Member_Führer_Stellvertretend"/>
+          <parameter key="nottobc" value="Nicht_Zum_BaseCamp"/>
+          <parameter key="support" value="Hochgebirgsunterstützung "/>
+          <parameter key="disabled" value="Behindert"/>
+          <parameter key="hired" value="Angestellter_Einheimischer"/>
+          <parameter key="sherpa" value="Sherpa"/>
+          <parameter key="tibetan" value="Tibetaner "/>
+          <parameter key="msolo" value="Solo"/>
+          <parameter key="mski" value="Ski_Abstieg"/>
+          <parameter key="mparapente" value="Gleitschirm_Abstieg"/>
+          <parameter key="mspeed" value="Abstiegsgeschwindigkeit"/>
+          <parameter key="mhighpt" value="Hoechster_Punkt_Erreicht"/>
+          <parameter key="mo2used" value="Sauerstoff_Genutzt"/>
+          <parameter key="mo2none" value="Sauerstoff_Nicht_Genutzt"/>
+          <parameter key="mo2climb" value="Klettern_Sauerstoff"/>
+          <parameter key="mo2descent" value="Abstieg_Sauerstoff"/>
+          <parameter key="mo2sleep" value="Schlaf_Sauerstoff"/>
+          <parameter key="mo2medical" value="Medizinisch_Sauerstoff"/>
+          <parameter key="death" value="Gestorben"/>
+          <parameter key="deathdate" value="Todesdatum"/>
+          <parameter key="deathtype" value="Todesart_diskret"/>
+          <parameter key="deathclass" value="Tod_Klassifikation_diskret"/>
+          <parameter key="ams" value="Tod_Zusammenhang_Hoehenkrankheit"/>
+          <parameter key="weather" value="Tod_Zusammenhang_Wetter"/>
+          <parameter key="injury" value="Verletzt"/>
+          <parameter key="injurydate" value="Verletzungsdatum"/>
+          <parameter key="injurytype" value="Verletzunstyp_diskret"/>
+          <parameter key="heightm" value="Gipfel_Hoehe_m"/>
+          <parameter key="smtdays" value="Expedition_Tage_zum_hoechsten_Punkt"/>
+          <parameter key="totdays" value="Expedition_Tage_gesamt"/>
+          <parameter key="highpoint" value="Expedition_hoechster_Punkt"/>
+          <parameter key="camps" value="Expedition_Anzahl_Hoehenlager_ueber_Base_Camp"/>
+          <parameter key="totmembers" value="Expedition_Anzahl_Mitglieder"/>
+          <parameter key="smtmembers" value="Expedition_Gipfelbesteigung"/>
+          <parameter key="mdeaths" value="Expedition_Gestorbene_Mitglieder"/>
+          <parameter key="tothired" value="Expedition_Anzahl_Personal_ueber_Base_Camp"/>
+          <parameter key="smthired" value="Expedition_Anzahl_Personal_Gipfel"/>
+          <parameter key="hdeaths" value="Expedition_Anzahl_Personal_Gestorben"/>
+          <parameter key="mseason" value="Mitglied_Saison"/>
+          <parameter key="calcage" value="Alter"/>
+          <parameter key="deathhgtm" value="Todes_Hoehe"/>
+          <parameter key="injuryhgtm" value="Verletzung_Hoehe"/>
+          <parameter key="deathrte" value="Todesroute"/>
+          <parameter key="lname_fname" value="Voller_Nam"/>
+          <parameter key="climber_experience" value="Klettererfahrung"/>
+        </list>
       </operator>
       <connect from_op="Execute DataImportAndCleaning" from_port="result 1" to_op="Execute Data Prep" to_port="input 1"/>
-      <connect from_op="Execute Data Prep" from_port="result 1" to_op="Write CSV" to_port="input"/>
-      <connect from_op="Write CSV" from_port="through" to_port="result 1"/>
+      <connect from_op="Execute Data Prep" from_port="result 1" to_op="Rename to undestandable names" to_port="example set input"/>
+      <connect from_op="Rename to undestandable names" from_port="example set output" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>

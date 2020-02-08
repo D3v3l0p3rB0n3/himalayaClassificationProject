@@ -42,7 +42,7 @@
       <operator activated="true" class="select_attributes" compatibility="9.5.001" expanded="true" height="82" name="Deselect Attributes" width="90" x="380" y="289">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
-        <parameter key="attributes" value="achievment|age|birthdate|mo2note|msmtdate3|msmtnote3|msmttime3|othersmts|pkname2|primid|psmtnote|restrict|trekyear|location"/>
+        <parameter key="attributes" value="accidents|achievment|age|bcdate|bconly|birthdate|campsites|chksum|claimed|deathnote|deathtime|disputed|expid|hcn|heightf|injurytime|location|mascent1|mascent2|mascent3|mchksum|mclaimed|mdisputed|membid|mo2note|mperhighpt|mroute1|mroute2|mroute3|msmtbid|msmtdate1|msmtdate2|msmtdate3|msmtnote1|msmtnote2|msmtnote3|msmtterm|msmttime1|msmttime2|msmttime3|msuccess|mtraverse|o2climb|o2descent|o2medical|o2none|o2sleep|o2taken|o2unkwn|o2used|othersmts|parapente|peakid|pexpid|pkname2|primid|primmem|primref|primrte|psmtnote|psummiters|restrict|rope|ski|smtdate|smttime|success1|success2|success3|success4|termdate|termnote|termreason|traverse|trekyear"/>
         <parameter key="use_except_expression" value="false"/>
         <parameter key="value_type" value="attribute_value"/>
         <parameter key="use_value_type_exception" value="false"/>
@@ -85,7 +85,7 @@
         <parameter key="replace_what" value="WAHR"/>
         <parameter key="replace_by" value="true"/>
       </operator>
-      <operator activated="true" class="replace" compatibility="9.5.001" expanded="true" height="82" name="Replace 'FALSCH'" width="90" x="916" y="289">
+      <operator activated="true" class="replace" compatibility="9.5.001" expanded="true" height="82" name="Replace 'FALSCH'" width="90" x="983" y="289">
         <parameter key="attribute_filter_type" value="all"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value=""/>
@@ -105,17 +105,18 @@
       <connect from_op="Import Members" from_port="output" to_op="Join Members" to_port="right"/>
       <connect from_op="Import Peaks" from_port="output" to_op="Join Peaks ~ Expedition" to_port="left"/>
       <connect from_op="Join Peaks ~ Expedition" from_port="join" to_op="Join Members" to_port="left"/>
-      <connect from_op="Join Members" from_port="join" to_op="Replace missing values" to_port="example set input"/>
+      <connect from_op="Join Members" from_port="join" to_op="Deselect Attributes" to_port="example set input"/>
+      <connect from_op="Deselect Attributes" from_port="example set output" to_op="Replace missing values" to_port="example set input"/>
       <connect from_op="Replace missing values" from_port="example set output" to_op="Replace 'WAHR'" to_port="example set input"/>
       <connect from_op="Replace 'WAHR'" from_port="example set output" to_op="Replace 'FALSCH'" to_port="example set input"/>
       <connect from_op="Replace 'FALSCH'" from_port="example set output" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
-      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="732" y="175">Replace every boolean value 'WAHR' to 'true'</description>
-      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="928" y="174">Replace every boolean value 'FALSCH' to 'false'</description>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="746" y="173">Replace every boolean value 'WAHR' to 'true'</description>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="952" y="174">Replace every boolean value 'FALSCH' to 'false'</description>
       <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="334" y="173">In this task some attributes where removed manuelly caused by to much missing values</description>
-      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="537" y="178">Some missing values have ' - - ' in this case it is replaced with '?' to be consistent</description>
+      <description align="center" color="yellow" colored="false" height="105" resized="false" width="180" x="540" y="172">Some missing values have ' - - ' in this case it is replaced with '?' to be consistent</description>
     </process>
   </operator>
 </process>
