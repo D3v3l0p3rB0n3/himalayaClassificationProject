@@ -30,104 +30,171 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="false" class="rename" compatibility="9.5.001" expanded="true" height="82" name="Rename to undestandable names" width="90" x="514" y="85">
-        <parameter key="old_name" value="calcage_disc"/>
-        <parameter key="new_name" value="Altersgruppe_diskret"/>
+      <operator activated="true" class="rename" compatibility="9.5.001" expanded="true" height="82" name="Rename" width="90" x="380" y="34">
+        <parameter key="old_name" value="agency"/>
+        <parameter key="new_name" value="Agentur"/>
         <list key="rename_additional_attributes">
-          <parameter key="pkname" value="Gipfel_Name"/>
-          <parameter key="himal" value="Gebirgsgruppe_diskret"/>
-          <parameter key="region" value="Region_diskret"/>
-          <parameter key="open" value="Gipfel_offen"/>
-          <parameter key="unlisted" value="Gipfel_ungelistet"/>
-          <parameter key="trekking" value="Trekkinggipfel"/>
-          <parameter key="phost" value="Gipfel_Laender_diskret"/>
-          <parameter key="pstatus" value="Gipfel_Kletterstatus_diskret"/>
-          <parameter key="pyear" value="Erstbegehungsjahr"/>
-          <parameter key="pseason" value="Erstbegehungssaison"/>
-          <parameter key="psmtdate" value="Erstbegehungsdatum"/>
-          <parameter key="pcountry" value="Erstbegehungsland"/>
-          <parameter key="year" value="Expedition_Jahr"/>
-          <parameter key="season" value="Expedition_Saison_diskret"/>
-          <parameter key="host" value="Expedition_Laender_diskret "/>
-          <parameter key="route1" value="Klettertour_1"/>
-          <parameter key="route2" value="Klettertour_2"/>
-          <parameter key="route3" value="Klettertour_3"/>
-          <parameter key="route4" value="Klettertour_4"/>
-          <parameter key="nation" value="Expedition_Staatsangehörigkeit"/>
-          <parameter key="leaders" value="Expedition_Fuehrer"/>
-          <parameter key="sponsor" value="Expedition_Sponsor"/>
-          <parameter key="ascent1" value="Aufsteiger_Nummer_fuer_Route_1"/>
-          <parameter key="ascent2" value="Aufsteiger_Nummer_fuer_Route_2"/>
-          <parameter key="ascent3" value="Aufsteiger_Nummer_fuer_Route_3"/>
-          <parameter key="ascent4" value="Aufsteiger_Nummer_fuer_Route_4"/>
-          <parameter key="countries" value="Expedition_Andere_Laender"/>
-          <parameter key="approach" value="Expedition_Anmarsch"/>
-          <parameter key="nohired" value="Kein_Personal_Ueber_Basecamp"/>
-          <parameter key="agency" value="Agentur"/>
-          <parameter key="comrte" value="Kommerzielle_Route"/>
-          <parameter key="stdrte" value="8000m_Standart_Route"/>
-          <parameter key="myear" value="Member_Jahr"/>
-          <parameter key="fname" value="Vorname"/>
-          <parameter key="lname" value="Nachname"/>
-          <parameter key="sex" value="Geschlecht"/>
-          <parameter key="yob" value="Geburtsjahr"/>
-          <parameter key="citizen" value="Staatsbürgerschaft"/>
-          <parameter key="status" value="Status"/>
-          <parameter key="residence" value="Wohnsitz"/>
-          <parameter key="occupation" value="Beruf"/>
-          <parameter key="leader" value="Member_Führer"/>
-          <parameter key="deputy" value="Member_Führer_Stellvertretend"/>
-          <parameter key="nottobc" value="Nicht_Zum_BaseCamp"/>
-          <parameter key="support" value="Hochgebirgsunterstützung "/>
-          <parameter key="disabled" value="Behindert"/>
-          <parameter key="hired" value="Angestellter_Einheimischer"/>
-          <parameter key="sherpa" value="Sherpa"/>
-          <parameter key="tibetan" value="Tibetaner "/>
-          <parameter key="msolo" value="Solo"/>
-          <parameter key="mski" value="Ski_Abstieg"/>
-          <parameter key="mparapente" value="Gleitschirm_Abstieg"/>
-          <parameter key="mspeed" value="Abstiegsgeschwindigkeit"/>
-          <parameter key="mhighpt" value="Hoechster_Punkt_Erreicht"/>
-          <parameter key="mo2used" value="Sauerstoff_Genutzt"/>
-          <parameter key="mo2none" value="Sauerstoff_Nicht_Genutzt"/>
-          <parameter key="mo2climb" value="Klettern_Sauerstoff"/>
-          <parameter key="mo2descent" value="Abstieg_Sauerstoff"/>
-          <parameter key="mo2sleep" value="Schlaf_Sauerstoff"/>
-          <parameter key="mo2medical" value="Medizinisch_Sauerstoff"/>
-          <parameter key="death" value="Gestorben"/>
-          <parameter key="deathdate" value="Todesdatum"/>
-          <parameter key="deathtype" value="Todesart_diskret"/>
-          <parameter key="deathclass" value="Tod_Klassifikation_diskret"/>
-          <parameter key="ams" value="Tod_Zusammenhang_Hoehenkrankheit"/>
-          <parameter key="weather" value="Tod_Zusammenhang_Wetter"/>
-          <parameter key="injury" value="Verletzt"/>
-          <parameter key="injurydate" value="Verletzungsdatum"/>
-          <parameter key="injurytype" value="Verletzunstyp_diskret"/>
-          <parameter key="heightm" value="Gipfel_Hoehe_m"/>
-          <parameter key="smtdays" value="Expedition_Tage_zum_hoechsten_Punkt"/>
-          <parameter key="totdays" value="Expedition_Tage_gesamt"/>
-          <parameter key="highpoint" value="Expedition_hoechster_Punkt"/>
-          <parameter key="camps" value="Expedition_Anzahl_Hoehenlager_ueber_Base_Camp"/>
-          <parameter key="totmembers" value="Expedition_Anzahl_Mitglieder"/>
-          <parameter key="smtmembers" value="Expedition_Gipfelbesteigung"/>
-          <parameter key="mdeaths" value="Expedition_Gestorbene_Mitglieder"/>
-          <parameter key="tothired" value="Expedition_Anzahl_Personal_ueber_Base_Camp"/>
-          <parameter key="smthired" value="Expedition_Anzahl_Personal_Gipfel"/>
-          <parameter key="hdeaths" value="Expedition_Anzahl_Personal_Gestorben"/>
-          <parameter key="mseason" value="Mitglied_Saison"/>
+          <parameter key="bconly" value="Nur_Base_Camp"/>
           <parameter key="calcage" value="Alter"/>
-          <parameter key="deathhgtm" value="Todes_Hoehe"/>
-          <parameter key="injuryhgtm" value="Verletzung_Hoehe"/>
-          <parameter key="deathrte" value="Todesroute"/>
-          <parameter key="lname_fname" value="Voller_Nam"/>
+          <parameter key="comrte" value="Kommerzielle_Route"/>
+          <parameter key="death" value="Gestorben"/>
+          <parameter key="disabled" value="Behindert"/>
+          <parameter key="fname" value="Vorname"/>
+          <parameter key="heightm" value="Hoehe"/>
+          <parameter key="himal" value="Gebirgsgruppe_diskret"/>
+          <parameter key="hired" value="Angestellter_Einheimischer"/>
+          <parameter key="injury" value="Verletzt"/>
+          <parameter key="leader" value="Member_Führer"/>
+          <parameter key="lname" value="Nachname"/>
+          <parameter key="mo2used" value="Sauerstoff_Genutzt"/>
+          <parameter key="mparapente" value="Gleitschirm_Abstieg"/>
+          <parameter key="mseason" value="Member_Saison"/>
+          <parameter key="mski" value="Ski_Abstieg"/>
+          <parameter key="msolo" value="Solo"/>
+          <parameter key="mspeed" value="Abstiegsgeschwindigkeit"/>
+          <parameter key="myear" value="Member_Jahr"/>
+          <parameter key="nohired" value="Kein_Personal_Ueber_Basecamp"/>
+          <parameter key="pkname" value="Gipfel_Name"/>
+          <parameter key="region" value="Region_diskret"/>
+          <parameter key="sex" value="Geschlecht"/>
+          <parameter key="sherpa" value="Sherpa"/>
+          <parameter key="tibetan" value="Tibetaner"/>
+          <parameter key="stdrte" value="8000m_Standart_Route"/>
+          <parameter key="totmembers" value="Expedition_Anzahl_Mitglieder"/>
+          <parameter key="unlisted" value="Gipfel_ungelistet"/>
+          <parameter key="calcage_disc" value="Altersgruppen_diskret"/>
+          <parameter key="lname_fname" value="Name_Gesamt"/>
           <parameter key="climber_experience" value="Klettererfahrung"/>
+          <parameter key="insurance_case" value="Tod_oder_Verletzt"/>
+          <parameter key="trekking" value="Trekkinggipfel"/>
         </list>
       </operator>
+      <operator activated="true" class="subprocess" compatibility="9.5.001" expanded="true" height="145" name="Deskriptive Statistik" width="90" x="581" y="34">
+        <process expanded="true">
+          <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="166" name="Multiply" width="90" x="112" y="187"/>
+          <operator activated="true" class="filter_examples" compatibility="9.5.001" expanded="true" height="103" name="Kein Trekkinggipfel" width="90" x="313" y="595">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Trekkinggipfel.equals.false"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="filter_examples" compatibility="9.5.001" expanded="true" height="103" name="Trekkinggipfel" width="90" x="313" y="493">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Trekkinggipfel.equals.true"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="filter_examples" compatibility="9.5.001" expanded="true" height="103" name="filter male members" width="90" x="715" y="187">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Geschlecht.equals.M"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="filter_examples" compatibility="9.5.001" expanded="true" height="103" name="filter female members" width="90" x="715" y="85">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Geschlecht.equals.F"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="filter_examples" compatibility="9.5.001" expanded="true" height="103" name="Dead Members" width="90" x="313" y="340">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Tod_oder_Verletzt.equals.true"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="124" name="Dead Member Multiplier" width="90" x="514" y="340"/>
+          <operator activated="true" class="filter_examples" compatibility="9.5.001" expanded="true" height="103" name="filter female members (2)" width="90" x="715" y="340">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Geschlecht.equals.F"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="filter_examples" compatibility="9.5.001" expanded="true" height="103" name="filter male members (2)" width="90" x="715" y="442">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Geschlecht.equals.M"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="python_scripting:execute_python" compatibility="9.5.000" expanded="true" height="124" name="Male Death Ratio" width="90" x="1050" y="238">
+            <parameter key="script" value="import pandas as pd&#10;&#10;# rm_main is a mandatory function, &#10;# the number of arguments has to be the number of input ports (can be none)&#10;def rm_main(male_members, death_male_members):&#10;    # connect 2 output ports to see the results&#10;    ratio = death_male_members.size / male_members.size * 100&#10;    return pd.DataFrame({'male_death_ratio': [ratio]})"/>
+            <parameter key="notebook_cell_tag_filter" value=""/>
+            <parameter key="use_default_python" value="true"/>
+            <parameter key="package_manager" value="conda (anaconda)"/>
+          </operator>
+          <operator activated="true" class="python_scripting:execute_python" compatibility="9.5.000" expanded="true" height="145" name="Female Death Ratio" width="90" x="1184" y="85">
+            <parameter key="script" value="import pandas as pd&#10;&#10;# rm_main is a mandatory function, &#10;# the number of arguments has to be the number of input ports (can be none)&#10;def rm_main(male_ratio_df, female_members, death_female_members):&#10;    # connect 2 output ports to see the results&#10;    ratio = death_female_members.size / female_members.size * 100&#10;    male_ratio_df.insert(1, 'female_death_ratio', [ratio])&#10;    return male_ratio_df"/>
+            <parameter key="notebook_cell_tag_filter" value=""/>
+            <parameter key="use_default_python" value="true"/>
+            <parameter key="package_manager" value="conda (anaconda)"/>
+          </operator>
+          <connect from_port="in 1" to_op="Multiply" to_port="input"/>
+          <connect from_op="Multiply" from_port="output 1" to_op="filter female members" to_port="example set input"/>
+          <connect from_op="Multiply" from_port="output 2" to_op="filter male members" to_port="example set input"/>
+          <connect from_op="Multiply" from_port="output 3" to_op="Dead Members" to_port="example set input"/>
+          <connect from_op="Multiply" from_port="output 4" to_op="Trekkinggipfel" to_port="example set input"/>
+          <connect from_op="Multiply" from_port="output 5" to_op="Kein Trekkinggipfel" to_port="example set input"/>
+          <connect from_op="Kein Trekkinggipfel" from_port="example set output" to_port="out 4"/>
+          <connect from_op="Trekkinggipfel" from_port="example set output" to_port="out 3"/>
+          <connect from_op="filter male members" from_port="example set output" to_op="Male Death Ratio" to_port="input 1"/>
+          <connect from_op="filter female members" from_port="example set output" to_op="Female Death Ratio" to_port="input 2"/>
+          <connect from_op="Dead Members" from_port="example set output" to_op="Dead Member Multiplier" to_port="input"/>
+          <connect from_op="Dead Member Multiplier" from_port="output 1" to_op="filter female members (2)" to_port="example set input"/>
+          <connect from_op="Dead Member Multiplier" from_port="output 2" to_op="filter male members (2)" to_port="example set input"/>
+          <connect from_op="Dead Member Multiplier" from_port="output 3" to_port="out 2"/>
+          <connect from_op="filter female members (2)" from_port="example set output" to_op="Female Death Ratio" to_port="input 3"/>
+          <connect from_op="filter male members (2)" from_port="example set output" to_op="Male Death Ratio" to_port="input 2"/>
+          <connect from_op="Male Death Ratio" from_port="output 1" to_op="Female Death Ratio" to_port="input 1"/>
+          <connect from_op="Female Death Ratio" from_port="output 1" to_port="out 1"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+          <portSpacing port="sink_out 3" spacing="0"/>
+          <portSpacing port="sink_out 4" spacing="0"/>
+          <portSpacing port="sink_out 5" spacing="0"/>
+        </process>
+      </operator>
       <connect from_op="Execute DataImportAndCleaning" from_port="result 1" to_op="Execute Data Prep" to_port="input 1"/>
-      <connect from_op="Execute Data Prep" from_port="result 1" to_port="result 1"/>
+      <connect from_op="Execute Data Prep" from_port="result 1" to_op="Rename" to_port="example set input"/>
+      <connect from_op="Rename" from_port="example set output" to_op="Deskriptive Statistik" to_port="in 1"/>
+      <connect from_op="Deskriptive Statistik" from_port="out 1" to_port="result 1"/>
+      <connect from_op="Deskriptive Statistik" from_port="out 2" to_port="result 2"/>
+      <connect from_op="Deskriptive Statistik" from_port="out 3" to_port="result 3"/>
+      <connect from_op="Deskriptive Statistik" from_port="out 4" to_port="result 4"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
     </process>
   </operator>
 </process>
