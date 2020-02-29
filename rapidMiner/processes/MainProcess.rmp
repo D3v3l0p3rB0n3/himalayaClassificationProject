@@ -21,7 +21,7 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="productivity:execute_process" compatibility="9.5.001" expanded="true" height="68" name="Execute Data Prep" width="90" x="179" y="34">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.5.001" expanded="true" height="68" name="Execute Data Prep" width="90" x="246" y="34">
         <parameter key="process_location" value="DataPrep"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="true"/>
@@ -30,7 +30,7 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="numerical_to_polynominal" compatibility="9.5.001" expanded="true" height="82" name="Numerical to Polynominal" width="90" x="313" y="34">
+      <operator activated="true" class="numerical_to_polynominal" compatibility="9.5.001" expanded="true" height="82" name="Numerical to Polynominal" width="90" x="380" y="34">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value="climber_experience|mseason|totmembers"/>
@@ -44,7 +44,7 @@
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="rename" compatibility="9.5.001" expanded="true" height="82" name="Rename" width="90" x="447" y="34">
+      <operator activated="true" class="rename" compatibility="9.5.001" expanded="true" height="82" name="Rename" width="90" x="514" y="34">
         <parameter key="old_name" value="agency"/>
         <parameter key="new_name" value="Agentur"/>
         <list key="rename_additional_attributes">
@@ -65,7 +65,6 @@
           <parameter key="msolo" value="Solo"/>
           <parameter key="mspeed" value="Schnellbesteigung"/>
           <parameter key="myear" value="Member_Jahr"/>
-          <parameter key="nohired" value="Anzahl_Helfer"/>
           <parameter key="pkname" value="Gipfel_Name"/>
           <parameter key="region" value="Region_diskret"/>
           <parameter key="sex" value="Geschlecht"/>
@@ -81,7 +80,7 @@
           <parameter key="trekking" value="Trekkinggipfel"/>
         </list>
       </operator>
-      <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="103" name="Multiply (2)" width="90" x="581" y="34"/>
+      <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="103" name="Multiply (2)" width="90" x="648" y="34"/>
       <operator activated="true" class="subprocess" compatibility="9.5.001" expanded="true" height="145" name="Deskriptive Statistik" width="90" x="983" y="34">
         <process expanded="true">
           <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="166" name="Multiply" width="90" x="112" y="187"/>
@@ -198,7 +197,7 @@
       <operator activated="true" class="select_attributes" compatibility="9.5.001" expanded="true" height="82" name="Delete Attributes" width="90" x="782" y="136">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
-        <parameter key="attributes" value="Alter|Expedition_Anzahl_Mitglieder|Gipfel_ungelistet|Hoehe|Member_Jahr|Nachname|Name_Gesamt|Vorname"/>
+        <parameter key="attributes" value="8000m_Standart_Route|Agentur|Alter|Expedition_Anzahl_Mitglieder|Gebirgsgruppe_diskret|Gipfel_ungelistet|Hoehe|Member_Jahr|Nachname|Name_Gesamt|Region_diskret|Schnellbesteigung|Sherpa|Ski_Abstieg|Tibetaner|Vorname"/>
         <parameter key="use_except_expression" value="false"/>
         <parameter key="value_type" value="attribute_value"/>
         <parameter key="use_value_type_exception" value="false"/>
@@ -419,7 +418,7 @@
           <portSpacing port="sink_averagable 2" spacing="0"/>
         </process>
       </operator>
-      <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="103" name="Multiply Trainingsset" width="90" x="1452" y="799"/>
+      <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="82" name="Multiply Trainingsset" width="90" x="1452" y="799"/>
       <operator activated="true" class="multiply" compatibility="9.5.001" expanded="true" height="103" name="Multiply Model" width="90" x="1452" y="697"/>
       <operator activated="true" class="model_simulator:prescriptive_analytics" compatibility="9.5.000" expanded="true" height="82" name="Prescriptive Analytics" width="90" x="1921" y="697">
         <parameter key="classification" value="true"/>
@@ -705,11 +704,11 @@
           <portSpacing port="sink_out 4" spacing="0"/>
         </process>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.5.001" expanded="true" height="68" name="Retrieve" width="90" x="1720" y="1105">
+      <operator activated="false" class="retrieve" compatibility="9.5.001" expanded="true" height="68" name="Retrieve" width="90" x="1720" y="1105">
         <parameter key="repository_entry" value="../data/prediction_unlabeled"/>
         <description align="center" color="transparent" colored="false" width="126">unlabled testdata</description>
       </operator>
-      <operator activated="true" class="model_simulator:explain_predictions" compatibility="9.5.000" expanded="true" height="124" name="Explain Predictions" width="90" x="1921" y="952">
+      <operator activated="false" class="model_simulator:explain_predictions" compatibility="9.5.000" expanded="true" height="124" name="Explain Predictions" width="90" x="1921" y="952">
         <parameter key="maximal explaining attributes" value="3"/>
         <parameter key="local sample size" value="500"/>
         <parameter key="only create predictions" value="false"/>
@@ -733,12 +732,9 @@
       <connect from_op="Split Validation DT" from_port="training" to_op="Multiply Trainingsset" to_port="input"/>
       <connect from_op="Split Validation DT" from_port="averagable 1" to_port="result 3"/>
       <connect from_op="Multiply Trainingsset" from_port="output 1" to_op="Prescriptive Analytics" to_port="training data"/>
-      <connect from_op="Multiply Trainingsset" from_port="output 2" to_op="Explain Predictions" to_port="training data"/>
       <connect from_op="Multiply Model" from_port="output 1" to_op="Prescriptive Analytics" to_port="model"/>
-      <connect from_op="Multiply Model" from_port="output 2" to_op="Explain Predictions" to_port="model"/>
+      <connect from_op="Multiply Model" from_port="output 2" to_port="result 5"/>
       <connect from_op="Prescriptive Analytics" from_port="optimal data" to_port="result 4"/>
-      <connect from_op="Retrieve" from_port="output" to_op="Explain Predictions" to_port="test data"/>
-      <connect from_op="Explain Predictions" from_port="visualization output" to_port="result 5"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
