@@ -117,7 +117,7 @@
             <parameter key="trim_values" value="false"/>
           </operator>
           <operator activated="true" class="python_scripting:execute_python" compatibility="9.5.000" expanded="true" height="103" name="Execute Python" width="90" x="380" y="34">
-            <parameter key="script" value="def rm_main(data):&#10;    #receive data set as data&#10;&#10;   #Sort data by year of memberclimb to ensure eperience is calculated in correct order&#10;    data.sort_values(&quot;myear&quot;, axis = 0, ascending = True, &#10;                 inplace = True, na_position ='last')&#10;    &#10;    #create new colum showing the experience of a climber by counting the apperance of the unique identifier&#10;    #from a combination of lastname and fristname&#10;    data[&quot;climber_experience&quot;] = data.groupby([data[&quot;lname_fname&quot;]]).cumcount()+1&#10;&#10;    return data"/>
+            <parameter key="script" value="def rm_main(data):&#10;    #receive data set as data&#10;&#10;   #Sort data by year of climb to ensure experience is calculated in correct order&#10;    data.sort_values(&quot;myear&quot;, axis = 0, ascending = True, &#10;                 inplace = True, na_position ='last')&#10;    &#10;    #create new colum showing the experience of a climber by counting the apperance of the &#10;    #unique identifier from a combination of lastname and fristname&#10;    data[&quot;climber_experience&quot;] = data.groupby([data[&quot;lname_fname&quot;]]).cumcount()+1&#10;&#10;    return data"/>
             <parameter key="notebook_cell_tag_filter" value=""/>
             <parameter key="use_default_python" value="true"/>
             <parameter key="package_manager" value="conda (anaconda)"/>
